@@ -24,7 +24,14 @@ class SpellingChecker:
     def check(self,event):
         content = self.text.get("1.0", tk.END)
         space_count = content.count(" ")
+
+        for tag in self.text.tag_names():
+            self.text.tag_delete(tag)
+
         if space_count != self.old_spaces:
             self.old_spaces = space_count
             for word in_content.spilt(" "):
-                if re.sub(r"[^\w]", "", word.lower())
+                if re.sub(r"[^\w]", "", word.lower()) not in words.words()
+                    position = content.find(word)
+                    self.text.tag_add(word, f"1.{position}", f"1.{position}",f"1.{position + len(word)}")
+                    self.text.tag_config(word, forground = "red")
