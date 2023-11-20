@@ -1,3 +1,4 @@
+
 import re
 import tkinter as tk
 from tkinter.scrolledtext import ScrolledText
@@ -13,7 +14,7 @@ class SpellingChecker:
         self.root = tk.Tk()
         self.root.geometry("600x500")
 
-        self.text = Scrolledtext(Self.root, font = ("arial",14))
+        self.text = ScrolledText(self.root, font = ("arial",14))
         self.text.bind("<KeyRelease>", self.check)
         self.text.pack()
 
@@ -33,8 +34,8 @@ class SpellingChecker:
             for tag in self.text.tag_names():
                 self.text.tag_delete(tag)
 
-            for word in_content.spilt(" "):
-                if re.sub(r"[^\w]", "", word.lower()) not in words.words()
+            for word in content.spilt(" "):
+                if re.sub(r"[^\w]", "", word.lower()) not in words.words():
                     position = content.find(word)
                     self.text.tag_add(word, f"1.{position}", f"1.{position}",f"1.{position + len(word)}")
                     self.text.tag_config(word, forground = "red")
